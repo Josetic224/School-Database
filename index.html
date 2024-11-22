@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Database</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1> Web3Bridge School Database</h1>
+    
+    <!-- Form for adding student details -->
+    <div class="form-container">
+      <h3>Add Student</h3>
+      <form id="student-form">
+        <input type="text" id="student-name" placeholder="Enter student name" required>
+        <input type="text" id="student-class" placeholder="Enter class" required>
+        <!-- Using date picker for graduation year -->
+        <input type="date" id="graduation-year" placeholder="Graduation year" required>
+        <button type="submit">Add Student</button>
+      </form>
+    </div>
+
+    <!-- Filter by graduation year -->
+    <div class="filter-container">
+      <input type="number" id="graduation-year-filter" placeholder="Filter by graduation year" />
+      <button onclick="filterByGraduationYear()">Filter</button>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard">
+      <h2>Dashboard</h2>
+      <p>Total Students: <span id="total-students">0</span></p>
+      <p>Current Students: <span id="current-students">0</span></p>
+      <p>Graduates: <span id="graduates">0</span></p>
+    </div>
+
+    <!-- Display students -->
+    <div id="classes-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
