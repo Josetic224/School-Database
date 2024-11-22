@@ -3,7 +3,7 @@ let students = [];
 // Set max date for the date input to prevent future year selection
 document.getElementById('graduation-year').setAttribute('max', new Date().toISOString().split('T')[0]);
 
-// implenting localstorage Persistion
+// Implementing localStorage persistence
 if (localStorage.getItem('students')) {
   students = JSON.parse(localStorage.getItem('students'));
   displayClasses();
@@ -15,7 +15,11 @@ document.getElementById('student-form').addEventListener('submit', function(e) {
 
   const name = document.getElementById('student-name').value;
   const studentClass = document.getElementById('student-class').value;
-  const graduationYear = new Date(document.getElementById('graduation-year').value).getFullYear(); 
+  const graduationYear = new Date(document.getElementById('graduation-year').value).getFullYear();
+  const age = document.getElementById('student-age').value;
+  const address = document.getElementById('student-address').value;
+  const phone = document.getElementById('student-phone').value;
+  const email = document.getElementById('student-email').value;
 
   if (!graduationYear || graduationYear > new Date().getFullYear()) {
     alert('Please select a valid graduation year (not in the future).');
@@ -25,7 +29,11 @@ document.getElementById('student-form').addEventListener('submit', function(e) {
   const student = {
     name,
     class: studentClass,
-    graduationYear
+    graduationYear,
+    age,
+    address,
+    phone,
+    email
   };
 
   students.push(student);
@@ -50,15 +58,15 @@ function displayClasses() {
   for (let className in classes) {
     const classCard = document.createElement('div');
     classCard.classList.add('class-card');
-    
+
     const classHeading = document.createElement('h3');
     classHeading.textContent = `Class ${className}`;
     classCard.appendChild(classHeading);
-    
+
     const studentList = document.createElement('ul');
     classes[className].forEach(student => {
       const listItem = document.createElement('li');
-      listItem.textContent = `${student.name} (Graduation Year: ${student.graduationYear})`;
+      listItem.textContent = `${student.name} (Graduation Year: ${student.graduationYear}, Age: ${student.age}, Address: ${student.address}, Phone: ${student.phone}, Email: ${student.email})`;
       studentList.appendChild(listItem);
     });
     classCard.appendChild(studentList);
@@ -88,15 +96,15 @@ function updateClassList(filteredStudents) {
   for (let className in classes) {
     const classCard = document.createElement('div');
     classCard.classList.add('class-card');
-    
+
     const classHeading = document.createElement('h3');
     classHeading.textContent = `Class ${className}`;
     classCard.appendChild(classHeading);
-    
+
     const studentList = document.createElement('ul');
     classes[className].forEach(student => {
       const listItem = document.createElement('li');
-      listItem.textContent = `${student.name} (Graduation Year: ${student.graduationYear})`;
+      listItem.textContent = `${student.name} (Graduation Year: ${student.graduationYear}, Age: ${student.age}, Address: ${student.address}, Phone: ${student.phone}, Email: ${student.email})`;
       studentList.appendChild(listItem);
     });
     classCard.appendChild(studentList);
