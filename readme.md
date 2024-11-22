@@ -6,8 +6,8 @@ This is a simple school management system that allows you to organize students i
 
 - **Student Management**: Add, view, and organize students into classes.
 - **Dashboard**: View a summary of students, including a count of current students and graduates.
-- **Student Filtering**: Filter students based on various criteria.
-- **Branching and Pull Requests**: It follows a git workflow including branching, pull request creation, and code review.
+- **Student Filtering**: Filter students based on year of graduation.
+- **Branching and Pull Requests**: It follows a git workflow including branching, pull request creation
 
 ## Tech Stack
 
